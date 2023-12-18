@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
     // Display every information in the console
     dispInfos(host, file, server_addr);
 
-    // Création d'une socket
+    // Creation of a socket
     int sockfd = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
     if (sockfd == -1) {
         perror("socket");
@@ -140,7 +140,7 @@ int main(int argc, char *argv[]) {
         // Increment the block number for the next ACK
         blockNumber++;
 
-        // Si le paquet est moins de MAX_BUFFER_SIZE, c'est le dernier paquet
+        // If the package lower than MAX_BUFFER_SIZE, finish reading
         if (bytesRead < MAX_BUFFER_SIZE) {
             break;
         }
