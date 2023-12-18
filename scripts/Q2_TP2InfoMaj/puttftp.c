@@ -10,7 +10,7 @@
 #define ERR_OUTPUT_SIZE 100
 
 
-void dispInfos(char host[], char file[], struct sockaddr_in *server_addr){
+void dispInfos(char host[], char file[], struct sockaddr_in *server_addr){ //function writing data in console
     char dispHost[strlen(host)+7];
     char dispFile[strlen(file)+7];
     char ip_buffer[INET_ADDRSTRLEN];
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
         char argError[ERR_OUTPUT_SIZE];
         sprintf(argError, "Error: the program %s needs two arguments <server> <file>\n", argv[0]);
         write(STDERR_FILENO, argError, strlen(argError));
-        exit(EXIT_FAILURE); // If there is not, exit program
+        exit(EXIT_FAILURE); // If there is not 3 arguments, exit program
         // Find the server and file
     }
     sprintf(host, "%s", argv[1]);
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     // Access server_info to get server information
     struct sockaddr_in *server_addr = (struct sockaddr_in *)server_info->ai_addr;
 
-    // 
+    // Display every information in the console
     dispInfos(host, file, server_addr);
 
     // free the list created by getaddrinfo
